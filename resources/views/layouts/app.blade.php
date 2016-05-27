@@ -64,11 +64,12 @@
                 <div class="pull-right">
                      @if (Auth::guest())
                   <li><a class="btn btn-primary" href="{{ url('/login') }}">Login</a></li>
-                        <li><a  href="{{ url('/register') }}">Register</a></li>
+
                     @elseif(isset($family))
                   Welcome {{ isset($family->nickname) ? $family->nickname : 'admin'}}               
   <li><a class="btn btn-primary" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
     @endif
+ <li><a  href="{{ url('/register') }}">Register</a></li>
                 </div>
                  
             </div>
