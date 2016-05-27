@@ -69,7 +69,7 @@
                   Welcome {{ isset($family->nickname) ? $family->nickname : 'admin'}}               
   <li><a class="btn btn-primary" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
     @endif
- <li><a  href="{{ url('/register') }}">Register</a></li>
+ 
                 </div>
                  
             </div>
