@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => $_ENV['DB_CONNECTION'],
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => $_ENV['DB_HOST'],
-            'port' => env('DB_PORT', '3306'),
+            'port' => $_ENV['DB_PORT', '3306'],
             'database' => $_ENV['DB_NAME'],
             'username' => $_ENV['DB_USERNAME'],
             'password' => $_ENV['DB_PASSWORD'],
