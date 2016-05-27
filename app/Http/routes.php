@@ -22,7 +22,11 @@ Route::bind('family',function($value){
 
 
 
-Route::get('/','FamilyController@index');
+//Route::get('/','FamilyController@index');
+    
+    Route::get('/',function(){
+               return 'test';
+               });
 Route::post('createinfo', ['middleware' => 'auth','as'=>'save_info','uses'=>'FamilyController@store']);
 Route::post('update/{family}',['middleware' => 'auth','as'=>'update_user','uses'=>'FamilyController@update']);
 Route::post('credential',['middleware' => 'auth','as'=>'update_credential','uses'=>'FamilyController@updateCredentials']);
