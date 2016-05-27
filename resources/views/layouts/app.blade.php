@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="kenel nerlande viaud midi klpn">
+        <meta name="_token" content="{!! csrf_token() !!}"/>
+        <script  src="{{ URL::asset('jquery/jquery-2.1.1.min.js') }}" ></script>
+       <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script  src="{{ URL::asset('bootstrap/css/modernizr-2.8.3-respond-1.4.2.min.js') }}" ></script>
+        <script  src="{{ URL::asset('bootstrap/js/bootstrap.js') }}" ></script>
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/bootstrap-theme.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/jquery.bxslider.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/style.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/responsive.min.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+        <title class="page-title">
+
+            @yield('title')
+        </title>
+
+  
+
+    <style type="text/css">
+        body {
+            font-family: 'Lato';
+        }
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+       
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #EEE;
+ }
+
+    </style>
+    
+    
+    
+    
+</head>
+<body id="app-layout">
+ <!--    <nav class="navbar navbar-default navbar-static-top"> -->
+ <header class="masthead navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header ">
+
+            
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/') }}">
+                   Home 
+                </a>
+               
+                <div class="pull-right">
+                     @if (Auth::guest())
+                  <li><a class="btn btn-primary" href="{{ url('/login') }}">Login</a></li>
+                      
+                    @elseif(isset($family))
+                  Welcome {{ isset($family->nickname) ? $family->nickname : 'admin'}}               
+  <li><a class="btn btn-primary" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+    @endif
+                </div>
+                 
+            </div>
+
+           
+        </div>
+</header>     
+    <!-- </nav> -->
+    
+    
+    <div class="container">
+         @yield('content')
+    </div>
+   
+
+    <footer class="big-seperator">
+        <div class="footer-bottom">
+           FOOTER
+        </div>
+    </footer>   
+</body>
+<script>
+    @yield('script')
+    $('#btn-pic').on('click',function(){
+   
+   var data ='<div >Upload your file</div> {!! Form::open(['route'=>'upload','method'=>'POST', 'files'=>true]) !!}';
+     data +='<div class="control-group"> <div class="controls"> {!! Form::file('image') !!} ';
+      data +=' </div> </div><div id="success"> </div>';
+       data +='{!! Form::submit('Upload', ['class'=>'btn btn-primary']) !!} {!! Form::close() !!} </div></div></div>';
+
+    //Variable for the html element and append the data
+ var  html = '<div id="modal-pic"  class="modal"  style="margin-top: 50px;">';
+    html += '  <div class="modal-dialog">';
+    html += '    <div class="modal-content">';
+    html += '      <div class="modal-header">';
+    html += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+    html += '        <h4 class="modal-title"> <span style="font-family:Lato;" class="pull-right"> Upload your best</span> </h4>';
+    html += '      </div>';
+    html += '      <div class="modal-body">' + data + '</div>';
+    html += '    </div';
+    html += '  </div>';
+    html += '</div>';
+     $('body').append(html);
+    
+        $('#modal-pic').modal('show');
+});
+
+
+
+$(function() {
+    $( ".datepicker" ).datepicker({
+    container:$(this),
+
+    dateFormat:'yy-mm-dd',
+      changeMonth: true,
+      changeYear: true,
+      clearBtn: true,
+      autoclose: true
+    });
+    //pull-down class
+       $('.pull-down').each(function() {
+           $('.sidestyle').css('height',$('#display-container').height());
+ $(this).css('margin-top', $(this).parents('.sidestyle').height() - $(this).height()-100);
+});
+    
+    
+  });
+  
+</script>
+<script type="text/javascript">
+$.ajaxSetup({
+   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+});
+
+
+</script>
+</html>
