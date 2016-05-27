@@ -12,8 +12,8 @@ Welcome to our page
 @section('content')
 @if($member)
 
-<div class="container separator">
-    <div id="display-container" class="row row-offcanvas row-offcanvas-left">
+
+    <div class="row row-offcanvas row-offcanvas-left separator">
 
         <!-- sidebar -->
         <div class="sidestyle col-xs-6 col-sm-3 ">
@@ -70,6 +70,7 @@ Welcome to our page
                     </div>
                     <!-- Jumbotron end. -->
                   
+                    <article class="author-bio-container">
                     @if($bio)
                     @foreach(explode("\n",$bio->self_description) as $aboutme )
                     <p class="col-md-12" align="left">{{ $aboutme }}</p>
@@ -77,7 +78,7 @@ Welcome to our page
                     @else
                     <p class="col-md-12" align="left">About ME</p>
                     @endif
-                  
+                  </article>
                     
                     <hr>
                     <!-- Work history -->
@@ -194,7 +195,8 @@ Welcome to our page
 
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
-</div><!--/.container-->
+    
+
 @else
 <!-- All members' CV links displayed along with their pictures -->
 <div class="row">
@@ -236,4 +238,7 @@ data +=' {!! Form::close() !!} </div>';
 });
 
 
+    
+
+  
 @stop

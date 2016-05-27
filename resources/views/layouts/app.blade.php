@@ -53,24 +53,20 @@
  <!--    <nav class="navbar navbar-default navbar-static-top"> -->
  <header class="masthead navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header ">
-
-            
+            <div class="navbar-header ">       
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
                    Home 
-                </a>
-               
-                <div class="pull-right">
+                </a> 
                      @if (Auth::guest())
-                  <li><a class="btn btn-primary" href="{{ url('/login') }}">Login</a></li>
+                  <a class="navbar-brand" href="{{ url('/login') }}">Login</a>
 
                     @elseif(isset($family))
                   Welcome {{ isset($family->nickname) ? $family->nickname : 'admin'}}               
-  <li><a class="btn btn-primary" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+  <a class="navbar-brand" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
     @endif
  
-                </div>
+            
                  
             </div>
 
@@ -80,19 +76,33 @@
     <!-- </nav> -->
     
     
-    <div class="container">
+    <div id="display-container" class="container">
          @yield('content')
     </div>
    
 
-    <footer class="big-seperator">
-        <div class="footer-bottom">
-           FOOTER
+    <footer class="footer">
+        <div class="footer-bottom section-padding row">
+          <ul class="nav nav-stacked">
+              <li> Blog</li>
+              
+            </ul>
         </div>
-    </footer>   
+    </footer> 
+    <!-- Scroll to the top of the page -->
+    <div id="scroll-to-top" class="scroll-to-top" style="display: block;">
+    <span>
+      <i class="fa fa-chevron-up"></i>    
+    </span>
+  </div>
+     <!-- Scroll to the top of the page end. -->
 </body>
 <script>
     @yield('script')
+    $('#scroll-to-top').on('click',function(){
+        $('html, body').animate({scrollTop : 0},800);
+    });
+    
     $('#btn-pic').on('click',function(){
    
    var data ='<div >Upload your file</div> {!! Form::open(['route'=>'upload','method'=>'POST', 'files'=>true]) !!}';
@@ -131,13 +141,14 @@ $(function() {
     });
     //pull-down class
        $('.pull-down').each(function() {
-           $('.sidestyle').css('height',$('#display-container').height());
- $(this).css('margin-top', $(this).parents('.sidestyle').height() - $(this).height()-100);
+           //$('.sidestyle').css('height',$('').height());
+ $(this).css('margin-top', $(this).parents('#display-container').height() - $(this).height()-100);
 });
-    
-    
-  });
-  
+
+
+
+
+  });//end of main function  
 </script>
 <script type="text/javascript">
 $.ajaxSetup({

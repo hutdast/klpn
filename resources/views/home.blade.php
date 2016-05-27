@@ -5,7 +5,7 @@ Create an entry
 @stop
 
 @section('content')
-<section id="about" class="about">
+<section  style="margin-top: 10%;">
     @if($family->nickname != 'admin')
     
     @if (count($errors) > 0)
@@ -27,9 +27,10 @@ Create an entry
     @endforeach
   </div> <!-- end .flash-message -->
 
-    
     <div class="panel-heading" data-toggle="collapse" data-target="#edit-info">
-        <button class="btn btn-primary"> Edit your info below <i class="fa fa-chevron-down"></i></button>   
+        <button class="btn btn-primary"> Edit your info below <i class="fa fa-chevron-down"></i></button>  
+        <a class="pull-right" href="{{ URL::route('member_cv',[$family->nickname]) }}"> {{$family->nickname }} 's CV</a>
+
     </div>
 
     <div id="edit-info" class="panel-body collapse">
