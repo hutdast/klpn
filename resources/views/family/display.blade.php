@@ -119,7 +119,7 @@ Welcome to our page
                                 <td>Start date </td>
                                 <td>End Date </td>
                                 <td>School </td>
-                                <td>Location </td>
+                               
 
                             </tr>
                         </thead>
@@ -130,8 +130,8 @@ Welcome to our page
                                 <td>{{ $edu->title }} </td>
                                 <td>{{ Carbon\Carbon::parse($edu->start_date)->format('jS \\of F Y') }} </td>
                                 <td>{{ Carbon\Carbon::parse($edu->end_date)->format('jS \\of F Y') }} </td>
-                                <td>{{ $edu->school }} </td>
-                                <td>{{ $edu->location }} </td>
+                                <td><a href="{{ $edu->location }}">{{ $edu->school }}</a> </td>
+                               
                             </tr>
                             @endforeach
                             @endif
@@ -186,13 +186,11 @@ Welcome to our page
     </div>
 @endif
 <!-- Error or success mail end. -->
-            <div class="col-md-12 text-center  wow animated fadeInRight" data-wow-delay=".75s"" >
+            <div class="col-md-12 text-center  wow animated fadeInRight" data-wow-delay=".75s"">
                 <a id="contact-mail" class="section-title big-separator"> Email me {{$user->email}}</a><!-- /.section-title -->
             </div><!-- /.form-area -->
 
-
-
-
+            
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
     

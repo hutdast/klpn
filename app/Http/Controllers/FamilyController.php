@@ -120,8 +120,9 @@ class FamilyController extends Controller {
                         'location' => $edu_input['location'][$i]
                     );
                 }
+                 Education::insert($edu_arr);
             }//end of checking if user did input any entry in education
-            Education::insert($edu_arr);
+           
 
             return redirect()->route('edit', [$family->nickname]);
         }

@@ -26,9 +26,8 @@ Welcome
       </div><!-- /.section-padding -->
     </div><!-- /.about-top -->
 
-     @foreach($family as $family_member)
     <div class="about-middle row">
-   
+     @foreach($family as $family_member)
         <div class="col-md-3 col-sm-6">
           <div class="item media wow animated fadeInLeft" data-wow-delay=".35s">
               <div class="section-padding">
@@ -47,18 +46,21 @@ Welcome
             </div><!-- /.section-padding -->
           </div><!-- /.item -->
         </div>
-      
+      @endforeach
     </div>
-@endforeach
+
+
     <div class="about-bottom">
       <div class="section-padding">
        
         <div class="col-sm-6">
           <div class="about-work wow animated fadeInRight" data-wow-delay=".5s">
               <h2 class="section-title"><span style="font-family: lato;">Family Newsweek</span> </h2><!-- /.section-title -->
-              <p class="description">
-                  None yet
-              </p>
+      
+
+   <div class="fb-comments" data-href="https://www.facebook.com/twinsANgryPaNda" data-width="400" data-numposts="5"></div>
+
+              
           </div><!-- /.about-work -->
         </div>
       </div><!-- /.section-padding -->
@@ -66,12 +68,7 @@ Welcome
     
     
   </section><!-- /#about -->
+
   
-  
-   
-  
-  
-  
-  
-  
-@endsection
+@stop
+

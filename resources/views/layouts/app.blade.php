@@ -50,6 +50,18 @@
     
 </head>
 <body id="app-layout">
+    <!-- Facebook comment API -->
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Facebook API ends -->
+    
  <!--    <nav class="navbar navbar-default navbar-static-top"> -->
  <header class="masthead navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -62,8 +74,9 @@
                   <a class="navbar-brand" href="{{ url('/login') }}">Login</a>
 
                     @elseif(isset($family))
-                  Welcome {{ isset($family->nickname) ? $family->nickname : 'admin'}}               
+                              
   <a class="navbar-brand" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+   Welcome {{ isset($family->nickname) ? $family->nickname : 'admin'}}  
     @endif
  
             
@@ -77,15 +90,12 @@
     
     
     <div id="display-container" class="container">
-         @yield('content')
+         @yield('content')        
     </div>
-   
 
     <footer class="footer">
         <div class="footer-bottom section-padding row">
-          <ul class="nav nav-stacked">
-              <li> Blog</li>
-              
+          <ul class="nav nav-stacked">             
             </ul>
         </div>
     </footer> 
@@ -122,8 +132,7 @@
     html += '    </div';
     html += '  </div>';
     html += '</div>';
-     $('body').append(html);
-    
+     $('body').append(html);  
         $('#modal-pic').modal('show');
 });
 
@@ -139,9 +148,15 @@ $(function() {
       clearBtn: true,
       autoclose: true
     });
+    //Footer to remain at the bottom of the screen
+//    $('.footer').each(function(){
+//     // $(this).css('margin-top', $(document).height());
+//    });
+    
+
+    
     //pull-down class
-       $('.pull-down').each(function() {
-           //$('.sidestyle').css('height',$('').height());
+       $('.pull-down').each(function() {       
  $(this).css('margin-top', $(this).parents('#display-container').height() - $(this).height()-100);
 });
 

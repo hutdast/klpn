@@ -33,7 +33,7 @@ Create an entry
 </div>
 
 <div class="form-group required">
-    {!! Form::label('nickname', 'Username:',['class' => 'col-sm-2 control-label']) !!}
+    {!! Form::label('nickname', 'Username:',['class' => 'col-sm-2 control-label','placeholder'=>'This is also your nickname']) !!}
     {!! Form::text('nickname',null, ['class' => 'form-control']) !!}
     {!! $errors->first('nickname', '<span style="color:red;" >:message</span>') !!}
 </div>
@@ -114,7 +114,7 @@ Create an entry
  <span style="padding-left: 10px;"> start date: </span> {!! Form::text('education[start_date][]', null, ['class'=>'datepicker','style' => 'width:10%;']) !!}
  <span style="padding-left: 10px;"> End date: </span> {!! Form::text('education[end_date][]', null, ['class'=>'datepicker','style' => 'width:10%;']) !!}
     <span  style="padding-left: 10px;"> School: </span> {!! Form::text('education[school][]', null, ['style' => 'width:10%;']) !!}
-    <span  style="padding-left: 10px;"> location: </span> {!! Form::text('education[location][]', null, ['style' => 'width:10%;','placeholder'=>'P-au-P Haiti']) !!}
+    <span  style="padding-left: 10px;"> Url: </span> {!! Form::text('education[location][]', null, ['style' => 'width:10%;','placeholder'=>'P-au-P Haiti']) !!}
  </div>
   
 </div>

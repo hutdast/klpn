@@ -134,7 +134,7 @@ Create an entry
                     <td>Start date </td>
                     <td>End Date </td>
                     <td>School </td>
-                    <td>Location </td>
+                    <td>Url </td>
                     <td>Action </td>
                 </tr>
             </thead>
