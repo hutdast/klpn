@@ -151,7 +151,7 @@ Create an entry
                         
                     <td style="width: 20%;">{!! Form::text('education[school][]',$edu->school, []) !!}</td>
                         
-                    <td style="width: 20%;">{!! Form::text('education[location][]',$edu->location, ['placeholder'=>'P-au-P Haiti']) !!}</td>
+                    <td style="width: 20%;">{!! Form::text('education[location][]',$edu->location, ['placeholder'=>'URL']) !!}</td>
                         
                     <td><button style="width:2%;" value=".edu-row" id="{!! URL::route('delete_row',['table'=>'education','id'=>$edu->id])!!}" type="button"  
                                 class="delete-row btn btn-primary pull-right" ><i class="fa fa-trash-o"></i></button></td>
@@ -168,7 +168,7 @@ Create an entry
                         
                     <td style="width: 20%;">{!! Form::text('education[school][]',null, []) !!}</td>
                         
-                    <td style="width: 20%;">{!! Form::text('education[location][]',null, ['placeholder'=>'P-au-P Haiti']) !!}</td>
+                    <td style="width: 20%;">{!! Form::text('education[location][]',null, ['placeholder'=>'URL']) !!}</td>
                         
                     <td></td>      
                 </tr>

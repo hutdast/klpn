@@ -378,9 +378,11 @@ class FamilyController extends Controller {
      */
     public function modifyPhoto(Request $request) {
         if ($request->action == 'delete') {
+            $photo = Photo::find($request->id);
+            unlink($photo->url);
             Photo::where('id', $request->id)
-                    
                     ->delete();
+                    
            $result = 'successfully deleted!';
         } elseif ($request->action == 'update') {
             $section = Photo::where('username', Auth::user()->name)

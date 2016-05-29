@@ -51,31 +51,37 @@ class CV extends Controller {
         $data['family'] = $family;
         $data['user'] = User::where('name', '=', $family->nickname)->first();
         $data['bio'] = Bio::where('username', '=', $family->nickname)->first();
-        $data['edus'] = Education::where('username', '=', $family->nickname)->get();
-        $data['works'] = WorkHistory::where('username', '=', $family->nickname)->get();
-        $data['projects'] = Project::where('username', '=', $family->nickname)->get();
+        $data['edus'] = Education::where('username', '=', $family->nickname)
+                ->orderBy('start_date', 'asc')
+                ->get();
+        $data['works'] = WorkHistory::where('username', '=', $family->nickname)
+                ->orderBy('start_date', 'asc')
+                ->get();
+        $data['projects'] = Project::where('username', '=', $family->nickname)
+                ->orderBy('title', 'desc')
+                ->get();
         $data['pic'] = Photo::where('for_section', 'profile')
                 ->where('username', $family->nickname)
                 ->first();
-        
+
         return view('family.display', $data);
     }
 
     public function sendMail(Request $request, FamilyMember $family) {
-    
-        $user = User::where('name', '=', $family->nickname)->first();
-     
 
-        Mail::send('family.mail', ['user' => $request->name, 'family' => $family,'msg'=>explode("\n",$request->message)], function ($m) use ($user, $request) {
+        $user = User::where('name', '=', $family->nickname)->first();
+
+
+        Mail::send('family.mail', ['user' => $request->name, 'family' => $family, 'msg' => explode("\n", $request->message)], function ($m) use ($user, $request) {
             $m->from($request->email, $request->name);
             $m->to($user->email, $user->name)->subject('cv contact');
         });
 
-        if (Mail::failures()) {   
+        if (Mail::failures()) {
             return back()->withErrors('There were errors sending your message...');
-        } 
-            $request->session()->flash('alert-success', 'Thank you for your message. It has been sent!');
-             return back(); 
         }
+        $request->session()->flash('alert-success', 'Thank you for your message. It has been sent!');
+        return back();
+    }
 
 }

@@ -58,24 +58,33 @@ Table of Contents End
 .motto{
    font-family: specialFont;
    font-size: 0.7em;
+  margin-top: 300px;
 }
 #display-container{ 
     padding-top:2%;
     padding-bottom: 5%;
     height: auto;
-}
-@media screen and (max-width: 500px){
-    .sidestyle{
-        height:154px;
-    }
+ 
 }
 .sidestyle{
    background-color: black;    
     color: white;
     margin-top: 30px;
-    height: 100%;
+   
+}
+
+@media screen and (max-width: 500px){
+    .sidestyle{
+        height:300px;
+    
+    }
+    .motto{
+   font-family: specialFont;
+   font-size: 0.7em; 
+    }
     
 }
+
 
 html,
 body {
@@ -698,7 +707,7 @@ hr{
 
 .main-content {
     padding-top: 3%;
-  
+ 
 }
 .main-content article {
     border-bottom: 1px solid #e8e8e8;

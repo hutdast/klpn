@@ -31,8 +31,8 @@ Welcome
         <div class="col-md-3 col-sm-6">
           <div class="item media wow animated fadeInLeft" data-wow-delay=".35s">
               <div class="section-padding">
-              <div class="item-details media-body text-center">
-                <div class="item-icon">
+                  <div class="item-details media-body text-center" >
+                <div class="item-icon" >
               <a href="{{ URL::route('member_cv',[$family_member->nickname]) }}">
                   @if($family_member->url)
                   <img src="{{$family_member->url}}" class="img-circle" />
@@ -57,9 +57,6 @@ Welcome
           <div class="about-work wow animated fadeInRight" data-wow-delay=".5s">
               <h2 class="section-title"><span style="font-family: lato;">Family Newsweek</span> </h2><!-- /.section-title -->
       
-
-   <div class="fb-comments" data-href="https://www.facebook.com/twinsANgryPaNda" data-width="400" data-numposts="5"></div>
-
               
           </div><!-- /.about-work -->
         </div>

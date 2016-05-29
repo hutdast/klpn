@@ -36,7 +36,7 @@ Welcome to our page
                         @endif
                     </div>
 
-                    <div class="motto pull-down">
+                    <div class="motto" >
                         @if($bio)
                         <small> {{ $bio->motto }}</small>
                         @else
@@ -55,9 +55,9 @@ Welcome to our page
             
             <div class="container-fluid bg-3 text-center"> 
 
-                <div class="row " >
+                <div class="row" >
                     <!-- Jumbotron -->
-                    <div class="jumbotron ">
+                    <div class="jumbotron col-xs-12">
 
                         @if($bio)
                         @foreach(explode(',',$bio->short_intro) as $mybio)
@@ -70,10 +70,10 @@ Welcome to our page
                     </div>
                     <!-- Jumbotron end. -->
                   
-                    <article class="author-bio-container">
+                    <article class="author-bio-container col-xs-12">
                     @if($bio)
                     @foreach(explode("\n",$bio->self_description) as $aboutme )
-                    <p class="col-md-12" align="left">{{ $aboutme }}</p>
+                    <p class="col-md-12" align="left">{!! $aboutme !!}</p>
                     @endforeach
                     @else
                     <p class="col-md-12" align="left">About ME</p>
@@ -83,7 +83,7 @@ Welcome to our page
                     <hr>
                     <!-- Work history -->
                     <h3  class="big-seperator section-title">Work History</h3>
-                    <table class="table table-hover">
+                    <table class="table table-hover col-xs-12">
                         <thead>
                             <tr class="section-description">
                                 <td>Company </td>
@@ -112,7 +112,7 @@ Welcome to our page
 
                     <!-- Education  -->
                     <h3  class="big-seperator section-title">Education</h3>
-                    <table class="table table-hover">
+                    <table class="table table-hover col-xs-12">
                         <thead>
                             <tr class="section-description">
                                 <td>Title </td>
@@ -130,7 +130,7 @@ Welcome to our page
                                 <td>{{ $edu->title }} </td>
                                 <td>{{ Carbon\Carbon::parse($edu->start_date)->format('jS \\of F Y') }} </td>
                                 <td>{{ Carbon\Carbon::parse($edu->end_date)->format('jS \\of F Y') }} </td>
-                                <td><a href="{{ $edu->location }}">{{ $edu->school }}</a> </td>
+                                <td><a target="_blank" href="{{ $edu->location }}">{{ $edu->school }}</a> </td>
                                
                             </tr>
                             @endforeach
@@ -141,7 +141,7 @@ Welcome to our page
                     <!-- Education end -->
                     <!-- projects -->
                     <h3  class="big-separator section-title">Projects</h3>
-                    <table class="table table-hover">
+                    <table class="table table-hover col-xs-12">
                         <thead>
                             <tr class="section-description">
 
@@ -187,7 +187,7 @@ Welcome to our page
 @endif
 <!-- Error or success mail end. -->
             <div class="col-md-12 text-center  wow animated fadeInRight" data-wow-delay=".75s"">
-                <a id="contact-mail" class="section-title big-separator"> Email me {{$user->email}}</a><!-- /.section-title -->
+                <a id="contact-mail" class="section-title big-separator"> Contact me <i class="fa fa-hand-o-right" aria-hidden="true"></i> {{$user->email}}</a><!-- /.section-title -->
             </div><!-- /.form-area -->
 
             
