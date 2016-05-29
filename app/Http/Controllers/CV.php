@@ -70,16 +70,16 @@ class CV extends Controller {
     public function sendMail(Request $request, FamilyMember $family) {
 
         $user = User::where('name', '=', $family->nickname)->first();
-
-
-        Mail::send('family.mail', ['user' => $request->name, 'family' => $family, 'msg' => explode("\n", $request->message)], function ($m) use ($user, $request) {
-            $m->from($request->email, $request->name);
-            $m->to($user->email, $user->name)->subject('cv contact');
+        $data =[];
+        $data['guest'] = $request;
+        $data['family'] = $family;
+        $data['msg'] = explode("\n", $request->message);
+        
+        Mail::send('family.mail',$data, function ($m) use ($user, $request) {
+            $m->from('hutdast@yahoo.com', $request->email);//hudast@yahoo.com is verified email address, in order to avoid code 553 errors
+            $m->to($user->email, $user->name)->subject('From my profile');
         });
 
-        if (Mail::failures()) {
-            return back()->withErrors('There were errors sending your message...');
-        }
         $request->session()->flash('alert-success', 'Thank you for your message. It has been sent!');
         return back();
     }

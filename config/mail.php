@@ -13,10 +13,16 @@ return [
     |
     | Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill",
     |            "ses", "sparkpost", "log"
+    |Server: smtp.mail.yahoo.com
+Port: 465 or 587
+Authentication: Yes/Password
+Encrypted Connection: SSL
+User name: Your email address
+Password: Your password
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +35,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mail.yahoo.com'),
+    'host' => env('MAIL_HOST'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +48,7 @@ return [
     |
     */
     
-    'port' => env('MAIL_PORT', 465),
+    'port' => env('MAIL_PORT'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +61,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'hutdast@yahoo.com', 'name' => 'Nick'],
+    'from' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +74,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
+    'encryption' => env('MAIL_ENCRYPTION'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +87,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME',''),
+    'username' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +100,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD',''),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,5 +114,5 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
-
+    'pretend' => false,
 ];
