@@ -100,7 +100,7 @@ class FamilyController extends Controller {
             $bio->short_intro = $request->input('short_intro');
             $bio->self_description = $request->input('self_description');
             $bio->save();
-            $edu_input = empty($request->input('education')) ? [] : $request->input('education');
+            $edu_input = $request->input('education');
             $size_arr = isset($edu_input['title']) ? sizeof($edu_input['title']) : 0;
             $edu_arr = [];
             if ($size_arr > 0) {
