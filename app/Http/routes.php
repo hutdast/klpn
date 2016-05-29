@@ -36,7 +36,3 @@ Route::post('mail/{family}',['as'=>'send_mail','uses'=>'CV@sendMail']);
 Route::auth();
 
 
-Route::get('test', function()
-{
-    dd(Config::get('mail'));
-});
