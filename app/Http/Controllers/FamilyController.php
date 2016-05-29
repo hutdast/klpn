@@ -101,7 +101,8 @@ class FamilyController extends Controller {
             $bio->self_description = $request->input('self_description');
             $bio->save();
             $edu_input = $request->input('education');
-            $size_arr = isset($edu_input['title']) ? sizeof($edu_input['title']) : 0;
+            $size_arr = count(array_filter($edu_input['title'], function($x) { return !empty($x); }));
+           
             $edu_arr = [];
             if ($size_arr > 0) {
                 $format = 'Y-m-d';
