@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="kenel nerlande viaud midi klpn">
+    <meta name="keywords" content="kenel laraque,nerlande viaud,paul midi, nikenson midi, oge viaud, leonard viaud">
+        <meta name="description" content="klpnfamily">
         <meta name="_token" content="{!! csrf_token() !!}"/>
         <script  src="{{ URL::asset('jquery/jquery-2.1.1.min.js') }}" ></script>
        <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

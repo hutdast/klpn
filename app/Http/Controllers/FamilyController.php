@@ -108,16 +108,16 @@ class FamilyController extends Controller {
                 $format = 'Y-m-d';
 
                 for ($i = 0; $i < $size_arr; $i++) {
-                    $start = explode("/", trim($edu_input['start_date'][$i]));
-                    $end = explode("/", $edu_input['end_date'][$i]);
-                    $start = Carbon::create($start[2], $start[0], $start[1]);
-                    $end = Carbon::create($end[2], $end[0], $end[1]);
+//                    $start = explode("/", trim($edu_input['start_date'][$i]));
+//                    $end = explode("/", $edu_input['end_date'][$i]);
+//                    $start = Carbon::create($start[2], $start[0], $start[1]);
+//                    $end = Carbon::create($end[2], $end[0], $end[1]);
                     $edu_arr[] = array(
                         'username' => $family->nickname,
                         'title' => $edu_input['title'][$i],
                         'school' => $edu_input['school'][$i],
-                        'start_date' => $start->format($format),
-                        'end_date' => $end->format($format),
+                        'start_date' => $edu_input['start_date'][$i],
+                        'end_date' => $edu_input['end_date'][$i],
                         'location' => $edu_input['location'][$i]
                     );
                 }
@@ -159,7 +159,7 @@ class FamilyController extends Controller {
             $family_arr = array(
                 'firstname' => $request->input('firstname'),
                 'lastname' => $request->input('lastname'),
-                'birthday' => Carbon::parse($request->input('birthday')),
+                'birthday' => $request->input('birthday'),
                 'social_media' => str_replace("/", "~", $request->input('social_media')),
                 'phone' => $request->input('phone'),
                 'address' => serialize($address),
@@ -208,15 +208,13 @@ class FamilyController extends Controller {
 
             $format = 'Y-m-d';
             for ($i = 0; $i < $size_arr; $i++) {
-                    $end = Carbon::parse($edu_input['end_date'][$i]);
-                    $start = Carbon::parse($edu_input['start_date'][$i]);
 
                 $edu_arr = array(
                     'username' => $family->nickname,
                     'title' => $edu_input['title'][$i],
                     'school' => $edu_input['school'][$i],
-                    'start_date' => $start->format($format),
-                    'end_date' => $end->format($format),
+                    'start_date' => $edu_input['start_date'][$i],
+                    'end_date' => $edu_input['end_date'][$i],
                     'location' => $edu_input['location'][$i]
                 );    
                  
@@ -247,16 +245,13 @@ class FamilyController extends Controller {
        
             $format = 'Y-m-d';
             for ($i = 0; $i < $size_arr; $i++) {
-                    $end = Carbon::parse($work_input['end_date'][$i]);
-                    $start = Carbon::parse($work_input['start_date'][$i]);
-      
 
                 $work_arr = array(
                     'username' => $family->nickname,
                     'company' => $work_input['company'][$i],
                     'position' => $work_input['position'][$i],
-                    'start_date' => $start->format($format),
-                    'end_date' => $end->format($format),
+                    'start_date' => $work_input['start_date'][$i],
+                    'end_date' => $work_input['end_date'][$i],
                     'job_description' => $work_input['job_description'][$i]
                 );
                 if(isset($work_input['id'][$i])){

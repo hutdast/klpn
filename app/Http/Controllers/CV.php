@@ -22,7 +22,8 @@ class CV extends Controller {
         $users = FamilyMember::leftJoin('photos', function ($join) {
                     $join->on('family_members.nickname', '=', 'photos.username')
                             ->where('photos.for_section', '=', 'profile');
-                })->get();
+                })->orderBy('seniority','asc')
+                        ->get();
 
         //if it is a single member all all the members
         $data['member'] = false;
