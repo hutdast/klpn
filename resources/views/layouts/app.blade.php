@@ -9,6 +9,7 @@
         <meta name="_token" content="{!! csrf_token() !!}"/>
         <script  src="{{ URL::asset('jquery/jquery-2.1.1.min.js') }}" ></script>
        <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+     <script type="text/javascript" src="{{ URL::asset('jquery/jquery.countdown.min.js') }}" ></script>
         <script  src="{{ URL::asset('bootstrap/css/modernizr-2.8.3-respond-1.4.2.min.js') }}" ></script>
         <script  src="{{ URL::asset('bootstrap/js/bootstrap.js') }}" ></script>
         <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/bootstrap.css') }}">
@@ -138,11 +139,10 @@ $(function() {
       clearBtn: true,
       autoclose: true
     });
-    //Footer to remain at the bottom of the screen
-//    $('.footer').each(function(){
-//     // $(this).css('margin-top', $(document).height());
-//    });
-    
+    //Countdown script
+  $("#getting-started").countdown("2016/07/24", function(event) {
+                                   $(this).text( event.strftime('%D days %H:%M:%S')); });
+
 
     
     //pull-down class

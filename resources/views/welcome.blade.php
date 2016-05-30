@@ -56,7 +56,8 @@ Welcome
         <div class="col-sm-6">
           <div class="about-work wow animated fadeInRight" data-wow-delay=".5s">
               <h2 class="section-title"><span style="font-family: lato;">Family Newsweek</span> </h2><!-- /.section-title -->
-      
+<p> Sophia is arriving in:</p>
+      <div id="getting-started"></div>
               
           </div><!-- /.about-work -->
         </div>
