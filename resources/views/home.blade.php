@@ -34,23 +34,23 @@ Create an entry
     </div>
 
     <div id="edit-info" class="panel-body collapse">
-        {!! Form::open(['route'=>['update_user',$family->nickname]]) !!}
+        {!! Form::open(['route'=>['update_user',$family->nickname],'role'=>'form']) !!}
         <div class="form-group required">
             {!! Form::label('firstname', 'Firstname:',['class' => 'col-sm-2 control-label']) !!}
-            {!! Form::text('firstname',$family->firstname, ['class' => 'form-control', 'placeholder'=>'Firstname']) !!}
+            {!! Form::text('firstname',$family->firstname, ['class' => 'form-control', 'placeholder'=>'Firstname','required']) !!}
             {!! $errors->first('firstname', '<span style="color:red;" >:message</span>') !!}
         </div>
 
         <div class="form-group required">
             {!! Form::label('lastname', 'Lastname:',['class' => 'col-sm-2 control-label']) !!}
-            {!! Form::text('lastname',$family->lastname,['class' => 'form-control']) !!}
+            {!! Form::text('lastname',$family->lastname,['class' => 'form-control','required']) !!}
             {!! $errors->first('lastname', '<span style="color:red;" >:message</span>') !!}
         </div>
 
 
         <div class="form-group required">
             {!! Form::label('phone', 'Primary Phone:',['class' => 'col-sm-2 control-label']) !!}
-            {!! Form::input('phone','phone', $family->phone, ['class' => 'form-control']) !!}
+            {!! Form::input('phone','phone', $family->phone, ['class' => 'form-control','required']) !!}
             {!! $errors->first('phone', '<span style="color:red;" >:message</span>') !!}
         </div>
 
@@ -59,15 +59,15 @@ Create an entry
 
         <div class="form-group required">
             {!! Form::label('address', 'Address:',['class' => 'col-sm-2 control-label', 'placeholder'=>'address','style' => 'width:10%;']) !!}
-            <span> Street: </span>{!! Form::text('address_1', $address['address_1'], ['style' => 'width:20%;']) !!}
+            <span> Street: </span>{!! Form::text('address_1', $address['address_1'], ['style' => 'width:20%;','required']) !!}
             <span> Apt#: </span>{!! Form::text('address_2',$address['address_2'], ['style' => 'width:6%;']) !!}
             {!! $errors->first('street', '<span style="color:red;" >:message</span>') !!}
-            <span  style="padding-left: 10px;"> City: </span> {!! Form::text('city',$address['city'], ['style' => 'width:10%;']) !!}
+            <span  style="padding-left: 10px;"> City: </span> {!! Form::text('city',$address['city'], ['style' => 'width:10%;','required']) !!}
             {!! $errors->first('city', '<span style="color:red;" >:message</span>') !!}
             <span style="padding-left: 10px;"> State: </span> 
-            {!! Form::select('state', $state, $address['state'],['style' => 'width:10%;']) !!}
+            {!! Form::select('state', $state, $address['state'],['style' => 'width:10%;','required']) !!}
             {!! $errors->first('state', '<span style="color:red;" >:message</span>') !!}
-            <span  style="padding-left: 10px;"> Zip: </span> {!! Form::text('zip',$address['zip'], ['style' => 'width:10%;']) !!}
+            <span  style="padding-left: 10px;"> Zip: </span> {!! Form::text('zip',$address['zip'], ['style' => 'width:10%;','required']) !!}
             {!! $errors->first('zip', '<span style="color:red;" >:message</span>') !!}
         </div>
         @endif
@@ -76,13 +76,13 @@ Create an entry
 
         <div class="form-group required">
             {!! Form::label('social_media (seperate by a comma)', null,['class' => 'col-sm-2 control-label', 'placeholder'=>'Twitter/facebook']) !!}
-            {!! Form::text('social_media',str_replace("~","/",$family->social_media), ['class' => 'form-control']) !!}
+            {!! Form::text('social_media',str_replace("~","/",$family->social_media), ['class' => 'form-control','required']) !!}
             {!! $errors->first('social_media', '<span style="color:red;" >:message</span>') !!}
         </div>
 
         <div class="form-group required">
             {!! Form::label('birthday', 'Date of birth:',['class' => 'col-sm-2 control-label']) !!}
-            {!! Form::text('birthday',$family->birthday, ['class' => 'form-control datepicker']) !!}
+            {!! Form::text('birthday',$family->birthday, ['class' => 'form-control datepicker','required']) !!}
             {!! $errors->first('birthday', '<span style="color:red;" >:message</span>') !!}
         </div>
 
@@ -145,7 +145,7 @@ Create an entry
                 <tr class="edu-row">
                      {!! Form::input('hidden','education[id][]',$edu->id, []) !!}
                     <td style="width: 25%;">{!! Form::text('education[title][]',$edu->title, ['placeholder'=>'high school/trade school']) !!}</td>
-                    <td style="width: 15%;">{!! Form::text('education[start_date][]',$edu->start_date, ['class'=>'datepicker edu-update']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('education[start_date][]',$edu->start_date, ['class'=>'datepicker']) !!}</td>
                         
                     <td style="width: 15%;">{!! Form::text('education[end_date][]',$edu->end_date, ['class'=>'datepicker']) !!}</td>
                         
@@ -162,9 +162,9 @@ Create an entry
                 <tr class="edu-row" >
                     <td style="width: 25%;">{!! Form::text('education[title][]',null, ['placeholder'=>'high school/trade school']) !!}</td>
                                         
-                    <td style="width: 15%;">{!! Form::text('education[start_date][]',null, ['class'=>'datepicker edu-update']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('education[start_date][]',null, ['class'=>'datepicker ']) !!}</td>
                         
-                    <td style="width: 15%;">{!! Form::text('education[end_date][]',null, ['class'=>'datepicker edu-update']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('education[end_date][]',null, ['class'=>'datepicker ']) !!}</td>
                         
                     <td style="width: 20%;">{!! Form::text('education[school][]',null, []) !!}</td>
                         
@@ -310,8 +310,8 @@ Create an entry
                 <div class="form-group">
                    
                     {!! Form::text('for_section',$pic->for_section, 
-           ['class' => 'photo-section form-control', 'placeholder'=>'Photo TAG ex: profile','id'=>URL::route('modify_pic',['id'=>$pic->id,'action'=>'update']) ]) !!}
-                 <button type="button" id="{!! URL::route('modify_pic',['id'=>$pic->id,'action'=>'delete'])!!}"  class="btn-primary photo" style="margin-top: 10px;"><i class="fa fa-trash-o"></i></button>    
+           ['class' => 'photo-section form-control', 'placeholder'=>'Photo TAG ex: profile','data-url'=>URL::route('modify_pic',['id'=>$pic->id,'action'=>'update']) ]) !!}
+                 <button type="button" data-url ="{!! URL::route('modify_pic',['id'=>$pic->id,'action'=>'delete'])!!}"  class="btn-primary photo" style="margin-top: 10px;"><i class="fa fa-trash-o"></i></button>    
                 </div>
 
             </div>
@@ -354,7 +354,6 @@ $('.flash-message').remove();
 
 
 
-
 //Add education row in education table
 $('#add-education').on('click',function(){
 $("#educations").append($("#educations").children().first().clone());
@@ -371,7 +370,7 @@ $("#project").append($("#project").children().first().clone());
 
 //Update photo
 $('.photo-section').on('blur',function(){
-var url = $(this).attr('id')+'&for_section='+$(this).val();
+var url = $(this).attr('data-url')+'&for_section='+$(this).val();
 $.ajax({
 url: url,
 type: 'get',
@@ -382,7 +381,7 @@ alert(json['result']);
 
 // delete photos
 $('.photo').on('click',function(){
-var photo_url = $(this).attr('id');
+var photo_url = $(this).attr('data-url');
 $.ajax({
 url: photo_url,
 type: 'get',

@@ -85,11 +85,19 @@ Table of Contents End
     
 }
 
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #EEE;
+ }
+
 
 html,
 body {
     background: #ffffff;
     font-size: 16px;
+    font-family: 'Lato';
+
     -webkit-font-smoothing: subpixel-antialiased !important;
     -moz-font-smoothing: subpixel-antialiased !important;
     -ms-font-smoothing: subpixel-antialiased !important;

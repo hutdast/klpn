@@ -8,11 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class FamilyMember extends Model
 {
     protected $fillable = ['firstname','lastname','nickname','phone','social_media','birthday','address'];
-    //set birthday as a carbon object
+    //set and get birthday as a carbon object
     protected $dates =['birthday'];
-
-
-    
 
 //    //Set a mutator on birthday so it can be store as Carbon object
 //    public function setBirthdayAttribute($date) 

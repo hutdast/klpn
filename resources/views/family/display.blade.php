@@ -99,8 +99,8 @@ Welcome to our page
                             @foreach($works as $work)
                             <tr  class="section-description">
                                 <td>{{ $work->company }} </td>
-                                <td >{{ Carbon\Carbon::parse($work->start_date)->format('jS \\of F Y') }} </td>
-                                <td>{{ Carbon\Carbon::parse($work->end_date)->format('jS \\of F Y') }} </td>
+                                <td >{{ $work->start_date->toFormattedDateString() }} </td>
+                                <td>{{ $work->end_date->toFormattedDateString() }} </td>
                                 <td>{{ $work->position }} </td>
                                 <td>{{ $work->job_description }} </td>
                             </tr>
@@ -128,8 +128,8 @@ Welcome to our page
                             @foreach($edus as $edu)
                             <tr class="section-description">
                                 <td>{{ $edu->title }} </td>
-                                <td>{{ Carbon\Carbon::parse($edu->start_date)->format('jS \\of F Y') }} </td>
-                                <td>{{ Carbon\Carbon::parse($edu->end_date)->format('jS \\of F Y') }} </td>
+                                <td>{{ $edu->start_date->toFormattedDateString() }} </td>
+                                <td>{{ $edu->end_date->toFormattedDateString() }} </td>
                                 <td><a target="_blank" href="{{ $edu->location }}">{{ $edu->school }}</a> </td>
                                
                             </tr>

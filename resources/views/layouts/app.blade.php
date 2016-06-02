@@ -9,8 +9,8 @@
         <meta name="description" content="klpnfamily">
         <meta name="_token" content="{!! csrf_token() !!}"/>
         <script  src="{{ URL::asset('jquery/jquery-2.1.1.min.js') }}" ></script>
-       <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-     <script type="text/javascript" src="{{ URL::asset('jquery/jquery.countdown.min.js') }}" ></script>
+        <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('jquery/jquery.countdown.min.js') }}" ></script>
         <script  src="{{ URL::asset('bootstrap/css/modernizr-2.8.3-respond-1.4.2.min.js') }}" ></script>
         <script  src="{{ URL::asset('bootstrap/js/bootstrap.js') }}" ></script>
         <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/bootstrap.css') }}">
@@ -27,31 +27,9 @@
 
             @yield('title')
         </title>
-
-  
-
-    <style type="text/css">
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-       
-.ui-datepicker {
-   background: #333;
-   border: 1px solid #555;
-   color: #EEE;
- }
-
-    </style>
-    
-    
-    
-    
+ 
 </head>
-<body id="app-layout">
+<body >
 
     
  <!--    <nav class="navbar navbar-default navbar-static-top"> -->
@@ -63,7 +41,8 @@
                    Home 
                 </a> 
                      @if (Auth::guest())
-                  <a class="navbar-brand" href="{{ url('/login') }}">Login</a>
+                     <!--  <a class="navbar-brand" href="{{ url('/login') }}">Login</a> -->
+                     <a class="navbar-brand" id="login">Login</a>
 
                     @elseif(isset($family))
                               
@@ -85,12 +64,7 @@
          @yield('content')        
     </div>
 
-    <footer class="footer">
-        <div class="footer-bottom section-padding row">
-          <ul class="nav nav-stacked">             
-            </ul>
-        </div>
-    </footer> 
+   
     <!-- Scroll to the top of the page -->
     <div id="scroll-to-top" class="scroll-to-top" style="display: block;">
     <span>
@@ -98,6 +72,13 @@
     </span>
   </div>
      <!-- Scroll to the top of the page end. -->
+      <footer >
+        <div class="footer-bottom section-padding row">
+          <ul class="nav nav-stacked">             
+            </ul>
+        </div>
+    </footer> 
+     
 </body>
 <script>
     @yield('script')
@@ -144,15 +125,42 @@ $(function() {
   $("#getting-started").countdown("2016/07/24", function(event) {
                                    $(this).text( event.strftime('%D days %H:%M:%S')); });
 
+//Login dialog
+$('#login').on('click',function(){
+    var data ='<div class="row"><div class="col-md-8 col-md-offset-2"><div class="panel panel-default"><div class="panel-heading">Login</div>';
+     data +='<div class="panel-body"><form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">{{ csrf_field() }}';
+      data +='<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}"><label class="col-md-4 control-label">E-Mail Address</label>';
+   data +='<div class="col-md-6"><input type="email" class="form-control" name="email" value="{{ old('email') }}">@if ($errors->has('email'))';
+   data +='<span class="help-block"> <strong>{{ $errors->first('email') }}</strong></span>@endif</div></div><div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">';
+   data +='<label class="col-md-4 control-label">Password</label><div class="col-md-6"><input type="password" class="form-control" name="password">';
+   data +='@if ($errors->has('password')) <span class="help-block"><strong>{{ $errors->first('password') }}</strong></span> @endif</div></div>';
+   data +='<div class="form-group"><div class="col-md-6 col-md-offset-4"><div class="checkbox"><label><input type="checkbox" name="remember"> Remember Me';
+   data +='</label></div></div></div><div class="form-group"><div class="col-md-6 col-md-offset-4"><button type="submit" class="btn btn-primary">';
+   data +='<i class="fa fa-btn fa-sign-in"></i>Login</button><a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>';
+   data +=' </div></div></form></div></div></div></div>';
+   
 
+    //Variable for the html element and append the data
+ var  html = '<div id="modal-login"  class="modal"  style="margin-top: 50px;">';
+    html += '  <div class="modal-dialog">';
+    html += '    <div class="modal-content">';
+    html += '      <div class="modal-header">';
+    html += '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';  
+    html += '      </div>';
+    html += '      <div class="modal-body">' + data + '</div>';
+    html += '    </div';
+    html += '  </div>';
+    html += '</div>';
+     $('body').append(html);  
+        $('#modal-login').modal('show');
     
+    
+});
+
     //pull-down class
        $('.pull-down').each(function() {       
  $(this).css('margin-top', $(this).parents('#display-container').height() - $(this).height()-100);
 });
-
-
-
 
   });//end of main function  
 </script>
