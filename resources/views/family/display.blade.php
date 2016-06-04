@@ -100,7 +100,7 @@ Welcome to our page
                             <tr  class="section-description">
                                 <td>{{ $work->company }} </td>
                                 <td >{{ $work->start_date->toFormattedDateString() }} </td>
-                                <td>{{ $work->end_date->toFormattedDateString() }} </td>
+                                <td>{{ ($work->end_date->year == -1)?'Present': $work->end_date->toFormattedDateString() }} </td>
                                 <td>{{ $work->position }} </td>
                                 <td>{{ $work->job_description }} </td>
                             </tr>
@@ -129,7 +129,7 @@ Welcome to our page
                             <tr class="section-description">
                                 <td>{{ $edu->title }} </td>
                                 <td>{{ $edu->start_date->toFormattedDateString() }} </td>
-                                <td>{{ $edu->end_date->toFormattedDateString() }} </td>
+                                <td>{{ ($edu->end_date->year == -1)?'Present': $edu->end_date->toFormattedDateString() }} </td>
                                 <td><a target="_blank" href="{{ $edu->location }}">{{ $edu->school }}</a> </td>
                                
                             </tr>

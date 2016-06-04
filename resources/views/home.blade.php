@@ -143,11 +143,12 @@ Create an entry
                 @if(isset($edus))
                 @foreach($edus as $edu)
                 <tr class="edu-row">
+                    
                      {!! Form::input('hidden','education[id][]',$edu->id, []) !!}
                     <td style="width: 25%;">{!! Form::text('education[title][]',$edu->title, ['placeholder'=>'high school/trade school']) !!}</td>
                     <td style="width: 15%;">{!! Form::text('education[start_date][]',$edu->start_date, ['class'=>'datepicker']) !!}</td>
-                        
-                    <td style="width: 15%;">{!! Form::text('education[end_date][]',$edu->end_date, ['class'=>'datepicker']) !!}</td>
+                    
+                    <td style="width: 15%;">{!! Form::text('education[end_date][]',($edu->end_date->year == -1)?'Present':$edu->end_date, ['class'=>'datepicker']) !!}</td>
                         
                     <td style="width: 20%;">{!! Form::text('education[school][]',$edu->school, []) !!}</td>
                         
@@ -198,7 +199,7 @@ Create an entry
                     {!! Form::input('hidden','work[id][]',$work->id, []) !!}
                     <td style="width: 25%;">{!! Form::text('work[company][]',$work->company,['placeholder'=>'Military Service/Company']) !!}</td>
                     <td style="width: 15%;">{!! Form::text('work[start_date][]',$work->start_date, ['class'=>'datepicker']) !!}</td>
-                    <td style="width: 15%;">{!! Form::text('work[end_date][]',$work->end_date, ['class'=>'datepicker']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('work[end_date][]',($work->end_date->year == -1)?'Present':$work->end_date, ['class'=>'datepicker']) !!}</td>
                     <td style="width: 10%;">{!! Form::text('work[position][]',$work->position, ['placeholder'=>'last one']) !!}</td>
                     <td style="width: 30%;">{!! Form::textArea('work[job_description][]',$work->job_description, ['rows'=>'4','cols'=>'50']) !!}</td>
                     <td><button style="width:2%;" value=".work-row" id="{!! URL::route('delete_row',['table'=>'work','id'=>$work->id])!!}" type="button"  
