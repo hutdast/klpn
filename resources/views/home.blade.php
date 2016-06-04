@@ -163,9 +163,9 @@ Create an entry
                 <tr class="edu-row" >
                     <td style="width: 25%;">{!! Form::text('education[title][]',null, ['placeholder'=>'high school/trade school']) !!}</td>
                                         
-                    <td style="width: 15%;">{!! Form::text('education[start_date][]',null, ['class'=>'datepicker ']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('education[start_date][]',null, ['class'=>'datepicker' ,'placeholder'=>'yyyy-mm-dd']) !!}</td>
                         
-                    <td style="width: 15%;">{!! Form::text('education[end_date][]',null, ['class'=>'datepicker ']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('education[end_date][]',null, ['class'=>'datepicker' ,'placeholder'=>'yyyy-mm-dd']) !!}</td>
                         
                     <td style="width: 20%;">{!! Form::text('education[school][]',null, []) !!}</td>
                         
@@ -210,8 +210,8 @@ Create an entry
                 @endif<!-- the if ends here so there is always an extra tray left even there is no entry in db -->
                 <tr class="work-row" >
                     <td style="width: 25%;">{!! Form::text('work[company][]',null, ['placeholder'=>'Military Service/Company']) !!}</td>
-                    <td style="width: 15%;">{!! Form::text('work[start_date][]',null, ['class'=>'datepicker']) !!}</td>
-                    <td style="width: 15%;">{!! Form::text('work[end_date][]',null, ['class'=>'datepicker']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('work[start_date][]',null, ['class'=>'datepicker' ,'placeholder'=>'yyyy-mm-dd']) !!}</td>
+                    <td style="width: 15%;">{!! Form::text('work[end_date][]',null, ['class'=>'datepicker' ,'placeholder'=>'yyyy-mm-dd']) !!}</td>
                     <td style="width: 10%;">{!! Form::text('work[position][]',null, ['placeholder'=>'last one']) !!}</td>
                     <td style="width: 30%;">{!! Form::textArea('work[job_description][]',null, ['rows'=>'4','cols'=>'50']) !!}</td>
                     <td></td>      
