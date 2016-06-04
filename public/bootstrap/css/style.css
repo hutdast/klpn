@@ -149,7 +149,8 @@ img {
     height:200px;
     border-radius:50%;  
     display:block;
-    background-position-y:25%
+    background-position-y:25%;
+   
 }
 .big-seperator{
     margin-top: 10%;
@@ -377,6 +378,7 @@ button:focus {
 .about-breifing .item-icon {
     font-size: 2.5em;
     padding-top: 15px;
+    
 }
 .about-breifing .count-number {
     font-size: 1.56em;

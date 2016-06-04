@@ -22,66 +22,66 @@ Create an entry
 <div class="form-group required">
   
     {!! Form::label('firstname', 'Firstname:',['class' => 'col-sm-2 control-label']) !!}
-    {!! Form::text('firstname',null, ['class' => 'form-control', 'placeholder'=>'Firstname']) !!}
+    {!! Form::text('firstname',null, ['class' => 'form-control', 'placeholder'=>'Firstname','required']) !!}
     {!! $errors->first('firstname', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 <div class="form-group required">
     {!! Form::label('lastname', 'Lastname:',['class' => 'col-sm-2 control-label']) !!}
-    {!! Form::text('lastname',null,['class' => 'form-control']) !!}
+    {!! Form::text('lastname',null,['class' => 'form-control','required']) !!}
     {!! $errors->first('lastname', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 <div class="form-group required">
     {!! Form::label('nickname', 'Username:',['class' => 'col-sm-2 control-label','placeholder'=>'This is also your nickname']) !!}
-    {!! Form::text('nickname',null, ['class' => 'form-control']) !!}
+    {!! Form::text('nickname',null, ['class' => 'form-control','required']) !!}
     {!! $errors->first('nickname', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 <div class="form-group required">
     {!! Form::label('phone', 'Primary Phone:',['class' => 'col-sm-2 control-label']) !!}
-    {!! Form::input('phone','phone', null, ['class' => 'form-control']) !!}
+    {!! Form::input('phone','phone', null, ['class' => 'form-control','required']) !!}
     {!! $errors->first('phone', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 <div class="form-group required">
     {!! Form::label('email', 'Email:',['class' => 'col-sm-2 control-label']) !!}
-    {!! Form::input('email','email', null, ['class' => 'form-control']) !!}
+    {!! Form::input('email','email', null, ['class' => 'form-control','required']) !!}
     {!! $errors->first('email', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 
 <div class="form-group required">
     {!! Form::label('address', 'Address:',['class' => 'col-sm-2 control-label', 'placeholder'=>'address','style' => 'width:10%;']) !!}
- <span> Street: </span>{!! Form::text('address_1', null, ['style' => 'width:20%;']) !!}
+ <span> Street: </span>{!! Form::text('address_1', null, ['style' => 'width:20%;','required']) !!}
  <span> Apt#: </span>{!! Form::text('address_2', null, ['style' => 'width:6%;']) !!}
  {!! $errors->first('street', '<span style="color:red;" >:message</span>') !!}
-  <span  style="padding-left: 10px;"> City: </span> {!! Form::text('city',null, ['style' => 'width:10%;']) !!}
+  <span  style="padding-left: 10px;"> City: </span> {!! Form::text('city',null, ['style' => 'width:10%;','required']) !!}
   {!! $errors->first('city', '<span style="color:red;" >:message</span>') !!}
  <span style="padding-left: 10px;"> State: </span> 
- {!! Form::select('state', $state, ['style' => 'width:10%;']) !!}
+ {!! Form::select('state', $state, ['style' => 'width:10%;','required']) !!}
  {!! $errors->first('state', '<span style="color:red;" >:message</span>') !!}
-    <span  style="padding-left: 10px;"> Zip: </span> {!! Form::text('zip', null, ['style' => 'width:10%;']) !!}
+    <span  style="padding-left: 10px;"> Zip: </span> {!! Form::text('zip', null, ['style' => 'width:10%;','required']) !!}
     {!! $errors->first('zip', '<span style="color:red;" >:message</span>') !!}
 
     
 </div>
 
 <div class="form-group required">
-    {!! Form::label('social_media (seperate by a comma)', null,['class' => 'col-sm-2 control-label', 'placeholder'=>'Twitter/facebook']) !!}
-    {!! Form::text('social_media', null, ['class' => 'form-control']) !!}
+    {!! Form::label('social_media (seperate by a comma)', null,['class' => 'col-sm-2 control-label', 'placeholder'=>'Twitter,facebook']) !!}
+    {!! Form::text('social_media', null, ['class' => 'form-control','required']) !!}
     {!! $errors->first('social_media', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 <div class="form-group required">
     {!! Form::label('birthday', 'Date of birth:',['class' => 'col-sm-2 control-label']) !!}
-    {!! Form::text('birthday',null, ['class' => 'form-control datepicker']) !!}
+    {!! Form::text('birthday',null, ['class' => 'form-control datepicker','required']) !!}
     {!! $errors->first('birthday', '<span style="color:red;" >:message</span>') !!}
 </div>
 
 <div class="form-group required">
     {!! Form::label('password', 'Password:',['class' => 'col-sm-2 control-label']) !!}
-    {!! Form::input('password','password', null,['class' => 'form-control']) !!}
+    {!! Form::input('password','password', null,['class' => 'form-control','required']) !!}
     {!! $errors->first('password', '<span style="color:red;" >:message</span>') !!}
 </div>
 
