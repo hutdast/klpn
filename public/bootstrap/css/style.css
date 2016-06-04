@@ -150,6 +150,8 @@ img {
     border-radius:50%;  
     display:block;
     background-position-y:25%;
+    border: solid #000;
+    border-width: 0 1px;
    
 }
 .big-seperator{

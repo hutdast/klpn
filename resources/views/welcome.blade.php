@@ -28,14 +28,15 @@ Welcome
 
     <div class="about-middle row">
      @foreach($family as $family_member)
-        <div class="col-md-3 col-sm-6" style="background-color: black;">
+        <div class="col-md-3 col-sm-6" >
           <div class="item media wow animated fadeInLeft" data-wow-delay=".35s" >
+             
               <div class="section-padding" >
                   <div class="item-details media-body text-center" >
                 <div class="item-icon" >
               <a href="{{ URL::route('member_cv',[$family_member->nickname]) }}">
                   @if($family_member->url)
-                  <img src="{{$family_member->url}}" class="img-circle" />
+                  <img src="{{$family_member->url}}" class="img-circle"  />
                  @else
                  <span> No Photo Available</span>
                  @endif        
