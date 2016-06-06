@@ -33,6 +33,9 @@ Route::get('education_delete',['middleware' => 'auth','as'=>'delete_row','uses'=
 Route::get('cv',['as'=>'all_cvs','uses'=>'CV@index']);
 Route::get('cv/{family}',['as'=>'member_cv','uses'=>'CV@display']);
 Route::post('mail/{family}',['as'=>'send_mail','uses'=>'CV@sendMail']);
+
+//API routes
+Route::get('landy', 'LandyApiController@api');
 Route::auth();
 
 
