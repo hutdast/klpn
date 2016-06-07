@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/responsive.min.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Belgrano" rel="stylesheet" type="text/css">
 
         <title class="page-title">
 
