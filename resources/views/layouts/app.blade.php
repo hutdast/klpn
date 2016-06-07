@@ -43,6 +43,7 @@
                      @if (Auth::guest())
                      <!--  <a class="navbar-brand" href="{{ url('/login') }}">Login</a> -->
                      <a class="navbar-brand" id="login">Login</a>
+<li><a  href="{{ url('/register') }}">Register</a></li>
 
                     @elseif(isset($family))
                               
