@@ -81,7 +81,9 @@ Welcome to our page
                   </article>
                     
                     <hr>
+                    
                     <!-- Work history -->
+                    @if($works)
                     <h3  class="big-seperator section-title">Work History</h3>
                     <table class="table table-hover col-xs-12">
                         <thead>
@@ -95,7 +97,7 @@ Welcome to our page
                             </tr>
                         </thead>
                         <tbody>
-                            @if($works)
+                            
                             @foreach($works as $work)
                             <tr  class="section-description">
                                 <td>{{ $work->company }} </td>
@@ -105,12 +107,14 @@ Welcome to our page
                                 <td>{{ $work->job_description }} </td>
                             </tr>
                             @endforeach
-                            @endif
+                           
                         </tbody>
                     </table>
+                     @endif
                     <!-- Work history end. -->
 
                     <!-- Education  -->
+                    @if($edus)
                     <h3  class="big-seperator section-title">Education</h3>
                     <table class="table table-hover col-xs-12">
                         <thead>
@@ -124,7 +128,7 @@ Welcome to our page
                             </tr>
                         </thead>
                         <tbody>
-                            @if($edus)
+                            
                             @foreach($edus as $edu)
                             <tr class="section-description">
                                 <td>{{ $edu->title }} </td>
@@ -134,12 +138,16 @@ Welcome to our page
                                
                             </tr>
                             @endforeach
-                            @endif
+                           
                         </tbody>
                     </table>
-
+                     @endif
+                     
                     <!-- Education end -->
+                    
+                    
                     <!-- projects -->
+                    @if($projects)
                     <h3  class="big-separator section-title">Projects</h3>
                     <table class="table table-hover col-xs-12">
                         <thead>
@@ -151,16 +159,17 @@ Welcome to our page
                             </tr>
                         </thead>
                         <tbody>
-                            @if($projects)
+                            
                             @foreach($projects as $project)
                             <tr class="section-description">
                                 <td><a target='_blank' href="{{ $project->url }}">{{ $project->title }} </a> </td>
                                 <td>{{ $project->description }} </td>
                             </tr>
                             @endforeach
-                            @endif
+                            
                         </tbody>
                     </table>
+                    @endif
                     <!-- Projects end -->
 
                 </div>
