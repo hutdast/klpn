@@ -34,8 +34,8 @@ class LandyApiController extends Controller
     */
   
    function test(Request $request) {
-       $tok = Cookie::make('token', csrf_token(), 30);
-         return response()->json(['token'=>$tok]);
+//       $tok = Cookie::make('token', csrf_token(), 30);
+         return response()->json(['token'=>csrf_token()]);
    }
    
 }
