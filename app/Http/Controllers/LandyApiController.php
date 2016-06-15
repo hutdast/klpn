@@ -24,14 +24,18 @@ class LandyApiController extends Controller
 //           return response()->json(['response'=>'success']);
 //       }
  
+      
      
-       return response()->json(['response'=>'unauthorized'])->header('Access-Control-Allow-Origin', 'http://localhost:8000');
+       return response()->json(['response'=>'unauthorized','token'=>$tok]);
    }//End of apiAccess(Request $request)
    
    /**
     * Testing api
     */
   
-   
+   function test(Request $request) {
+        $tok = Cookie::make('token', csrf_token(), 30);
+         return response()->json(['token'=>$tok]);
+   }
    
 }
