@@ -128,7 +128,14 @@ $(function() {
   $("#getting-started").countdown("2016/07/24", function(event) {
                                    $(this).text( event.strftime('%D days %H:%M:%S')); });
   
-
+$.ajax({
+    url:"https://klpnfamily.com/api",
+    type:"get",
+   
+    success:function(json){
+        alert(json['token']);
+    }
+});
 //Login dialog
 $('#login').on('click',function(){
     var data ='<div class="row"><div class="col-md-8 col-md-offset-2"><div class="panel panel-default"><div class="panel-heading">Login</div>';
