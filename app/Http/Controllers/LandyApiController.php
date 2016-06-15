@@ -26,7 +26,7 @@ class LandyApiController extends Controller
  
       
      
-       return response()->json(['response'=>'unauthorized','token'=>$tok]);
+       return response()->json(['response'=>'unauthorized']);
    }//End of apiAccess(Request $request)
    
    /**
