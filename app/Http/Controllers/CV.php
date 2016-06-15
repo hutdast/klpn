@@ -19,12 +19,15 @@ class CV extends Controller {
 
     public function index() {
         $data = [];
-        $users = FamilyMember::leftJoin('photos', function ($join) {
-                    $join->on('family_members.nickname', '=', 'photos.username')
-                            ->where('photos.for_section', '=', 'profile');
-                })->orderBy('seniority','desc')
+        $users = FamilyMember::leftJoin('photos as p', function ($join) {
+                    $join->on('family_members.nickname', '=', 'p.username')
+                            ->where('p.for_section', '=', 'profile');
+                            
+                })->orderBy('family_members.seniority','ASC')
                         ->get();
 
+                
+                
         //if it is a single member all all the members
         $data['member'] = false;
         $data['family'] = $users;
