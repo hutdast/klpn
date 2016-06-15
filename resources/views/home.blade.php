@@ -345,6 +345,7 @@ Create an entry
 </section>
 @stop
 
+
 @section('script')
 
 $(function(){
