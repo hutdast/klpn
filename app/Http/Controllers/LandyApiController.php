@@ -24,8 +24,8 @@ class LandyApiController extends Controller
 //           return response()->json(['response'=>'success']);
 //       }
  
-      
-       return response()->json(['response'=>'unauthorized']);
+     
+       return response()->json(['response'=>'unauthorized'])->header('Access-Control-Allow-Origin', '*');
    }//End of apiAccess(Request $request)
    
    /**
