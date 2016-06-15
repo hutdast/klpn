@@ -124,6 +124,9 @@ $(function() {
       clearBtn: true,
       autoclose: true
     });
+    //Countdown script
+  $("#getting-started").countdown("2016/07/24", function(event) {
+                                   $(this).text( event.strftime('%D days %H:%M:%S')); });
   
 
 //Login dialog

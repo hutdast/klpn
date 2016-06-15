@@ -71,3 +71,6 @@ Welcome
   
 @stop
 
+@section('script')
+
+@stop
