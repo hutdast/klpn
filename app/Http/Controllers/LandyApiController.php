@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Model\FamilyMember;
 use App\Http\Requests;
-use \Illuminate\Foundation\Auth;
+use \Illuminate\Foundation\Auth\User;
 
 class LandyApiController extends Controller
 {
