@@ -37,6 +37,7 @@ Route::post('mail/{family}',['as'=>'send_mail','uses'=>'CV@sendMail']);
 //API routes
 Route::get('api',['as'=>'api','uses'=>'LandyApiController@index']);
 Route::post('api/login',['as'=>'api_access','uses'=>'LandyApiController@apiAccess']);
+Route::get('api/check',['as'=>'api_check','uses'=>'LandyApiController@apiAuthCheck']);
 
 
 Route::auth();

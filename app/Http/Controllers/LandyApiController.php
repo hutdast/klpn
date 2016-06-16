@@ -44,6 +44,17 @@ class LandyApiController extends Controller
       
    }//End of apiAccess(Request $request)
    
+   /**
+    * Get session id that can be the token of authentication to access the rest of the api
+    */
+   function apiAuthCheck(Request $request) {
+       if(Auth::check()){
+           return response()->json(['response'=>'checked', 'session'=> session()->getId(), 'user'=>Auth::user()->name]);
+       }else{
+           return response()->json(['response'=> 'not checked']);
+       }
+       
+   }
    
    
 }
