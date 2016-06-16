@@ -17,9 +17,9 @@ class LandyApiController extends Controller
    function apiAccess(Request $request) 
    {
        
-//            $user = User::where('name','=',$request->username)
-//                    ->first();
-       return response()->json(['response'=>$request->username]);
+            $user = User::where('name','=',$request->username)
+                    ->first();
+       return response()->json(['response'=>$user]);
 //       if (Auth::attempt(['email'=>$user->email,'password'=>$request->password])){
 //          
 //           return response()->json(['response'=>'success']);
