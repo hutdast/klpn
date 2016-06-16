@@ -75,7 +75,7 @@ class FamilyController extends Controller {
             $user = new \App\User();
             $user->name = $request->input('nickname');
             $user->email = $request->input('email');
-            $user->password = bcrypt($request->input('password'));
+            $user->password = Hash::make($request->input('password'));
             $user->save();
             $family = new FamilyMember();
             $family->firstname = $request->input('firstname');

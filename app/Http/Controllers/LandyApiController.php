@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Model\FamilyMember;
 use App\Http\Requests;
 use \Illuminate\Foundation\Auth\User;
+use Auth;//Auth must be imported before using auth::attempt()
 
 class LandyApiController extends Controller
 {
@@ -22,9 +23,9 @@ class LandyApiController extends Controller
        if(!isset($user)){
            return response()->json(['response'=>'invalid']);
        }
-       
+    
        if (Auth::attempt(['email'=>$user->email,'password'=>$request->password])){
-          
+           
            return response()->json(['response'=>'success']);
        }else{
           return response()->json(['response'=>'unauthorized']);
@@ -37,7 +38,7 @@ class LandyApiController extends Controller
     */
   
    function test(Request $request) {
-//       $tok = Cookie::make('token', csrf_token(), 30);
+
          return response()->json(['token'=>csrf_token()]);
    }
    
