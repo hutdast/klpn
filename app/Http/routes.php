@@ -35,7 +35,7 @@ Route::get('cv/{family}',['as'=>'member_cv','uses'=>'CV@display']);
 Route::post('mail/{family}',['as'=>'send_mail','uses'=>'CV@sendMail']);
 
 //API routes
-Route::get('api',['as'=>'api','uses'=>'LandyApiController@test']);
+Route::get('api',['as'=>'api','uses'=>'LandyApiController@index']);
 Route::post('api/login',['as'=>'api_access','uses'=>'LandyApiController@apiAccess']);
 
 

@@ -10,6 +10,17 @@ use Auth;//Auth must be imported before using auth::attempt()
 
 class LandyApiController extends Controller
 {
+    /**
+    * Initial call to the api
+    */
+  
+   function index() {
+
+    return response()->json(['token'=>csrf_token()]);
+   }
+    
+    
+    
    /**
     * apiAccess(Request $request, FamilyMember $family) authenticates user and once authneticated a token is returned
     * to the user else a notification of failed authentication is sent. 
@@ -33,13 +44,6 @@ class LandyApiController extends Controller
       
    }//End of apiAccess(Request $request)
    
-   /**
-    * Testing api
-    */
-  
-   function test(Request $request) {
-
-         return response()->json(['token'=>csrf_token()]);
-   }
+   
    
 }
