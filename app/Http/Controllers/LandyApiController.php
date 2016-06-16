@@ -55,6 +55,12 @@ class LandyApiController extends Controller
        }
        
    }
-   
+  
+   /**
+    * Api logout
+    */
+   function apiLogout() {
+       Auth::logout();
+   }
    
 }
