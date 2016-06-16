@@ -19,7 +19,7 @@ class LandyApiController extends Controller
        
             $user = User::where('name','=',$request->username)
                     ->first();
-       return response()->json(['response'=>$user]);
+       return response()->json(['response'=>$user->email]);
 //       if (Auth::attempt(['email'=>$user->email,'password'=>$request->password])){
 //          
 //           return response()->json(['response'=>'success']);
