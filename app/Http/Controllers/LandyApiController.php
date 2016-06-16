@@ -17,14 +17,15 @@ class LandyApiController extends Controller
    function apiAccess(Request $request) 
    {
        
-            $user = User::where('name','=',$request->username)
-                    ->first();
-       if (Auth::attempt(['email'=>$user->email,'password'=>$request->password])){
-          
-           return response()->json(['response'=>'success']);
-       }else{
-          return response()->json(['response'=>'unauthorized']);
-       }
+//            $user = User::where('name','=',$request->username)
+//                    ->first();
+       return response()->json(['response'=>$request->username]);
+//       if (Auth::attempt(['email'=>$user->email,'password'=>$request->password])){
+//          
+//           return response()->json(['response'=>'success']);
+//       }else{
+//          return response()->json(['response'=>'unauthorized']);
+//       }
       
    }//End of apiAccess(Request $request)
    
