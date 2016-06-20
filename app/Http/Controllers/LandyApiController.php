@@ -59,7 +59,8 @@ class LandyApiController extends Controller
    /**
     * Api logout
     */
-   function apiLogout() {
+   function apiLogout(Request $request) {
+       $request->session()->flush();
        Auth::logout();
    }
    
