@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Model\FamilyMember;
 use App\Http\Requests;
 use \Illuminate\Foundation\Auth\User;
+use App\Model\Lotto;
 use Auth;//Auth must be imported before using auth::attempt()
 
 class LandyApiController extends Controller
@@ -62,5 +63,46 @@ class LandyApiController extends Controller
    function apiLogout(Request $request) {
        Auth::logout();
    }
+   
+   /**
+    * Api storage. 
+    * Api storage requires user to be logged in take for param session and payload
+    */
+   function apiStore(Request $request)
+   {
+       if(Auth::check()){
+           $lotto = new Lotto();
+           $lotto->username = Auth::user()->name;
+           $lotto->payload = $request->payload;
+           $lotto->save();
+           return response()->json(['response'=> 'saved']);
+       }else{
+           return response()->json(['response'=> 'not saved']);
+       }
+       
+   }
+   /**
+    * Api storage retrieval
+    * Api retrieval fetches saved lotto of the user
+    */
+   function apiFetch(Request $request) 
+   {
+       if(Auth::check()){
+           $lotto = Lotto::where('username','=',Auth::user()->name)->get();
+           $payload = [];
+           $count =0;
+           foreach ($lotto as $value) 
+               {
+               $payload[$count] = $value->payload;
+               
+           }
+           return response()->json(['response'=> 'sucess','payload'=>$payload]);
+       }else{
+           return response()->json(['response'=> 'failure']);
+       }
+       
+   }
+   
+   
    
 }
