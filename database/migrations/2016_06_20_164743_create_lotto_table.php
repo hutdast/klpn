@@ -13,8 +13,14 @@ class CreateLottoTable extends Migration
     public function up()
     {
         Schema::table('lotto', function (Blueprint $table) {
-            //
+             $table->increments('lotto_id');
+            $table->mediumText('payload');
+            $table->timestamps('date_created');
         });
+         Schema::table('lotto', function($table) {
+       $table->foreign('lotto_id')->references('id')->on('users');
+   });
+   
     }
 
     /**
@@ -25,7 +31,7 @@ class CreateLottoTable extends Migration
     public function down()
     {
         Schema::table('lotto', function (Blueprint $table) {
-            //
+            Schema::drop('lotto');
         });
     }
 }
