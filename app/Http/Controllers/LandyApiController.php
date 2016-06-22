@@ -72,8 +72,8 @@ class LandyApiController extends Controller
    {
        if(Auth::check()){
            $lotto = new Lotto();
-//           $lotto->username = Auth::user()->name;
-//           $lotto->payload = $request->payload;
+           $lotto->username = Auth::user()->name;
+           $lotto->payload = $request->payload;
 //           $lotto->save();
            return response()->json(['response'=> 'saved']);
        }else{
