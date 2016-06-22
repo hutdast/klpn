@@ -5,7 +5,7 @@
         <group>
             <file>file:/Volumes/Extra2/github/klpn/resources/views/family/display.blade.php</file>
             <file>file:/Volumes/Extra2/github/klpn/app/Http/Controllers/CV.php</file>
-            <file>file:/Volumes/Extra2/github/klpn/resources/views/layouts/app.blade.php</file>
+            <file>file:/Volumes/Extra2/github/klpn/app/Http/Controllers/FamilyController.php</file>
             <file>file:/Volumes/Extra2/github/klpn/app/Http/Controllers/LandyApiController.php</file>
             <file>file:/Volumes/Extra2/github/klpn/app/Http/routes.php</file>
         </group>

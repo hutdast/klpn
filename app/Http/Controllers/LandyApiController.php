@@ -71,10 +71,10 @@ class LandyApiController extends Controller
    function apiStore(Request $request)
    {
        if(Auth::check()){
-           $lotto = new Lotto();
-           $lotto->username = Auth::user()->name;
-           $lotto->payload = $request->payload;
-           $lotto->save();
+//           $lotto = new Lotto();
+//           $lotto->username = Auth::user()->name;
+//           $lotto->payload = $request->payload;
+//           $lotto->save();
            return response()->json(['response'=> 'saved']);
        }else{
            return response()->json(['response'=> 'not saved']);
