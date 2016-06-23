@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon;
 use Illuminate\Http\Request;
 use \App\Model\FamilyMember;
 use App\Http\Requests;
@@ -71,11 +72,12 @@ class LandyApiController extends Controller
    function apiStore(Request $request)
    {
        if(Auth::check()){
-           $lotto = new Lotto();
-           $lotto->username = Auth::user()->name;
-           $lotto->payload = $request->payload;
-           $lotto->save();
-           return response()->json(['response'=> 'saved']);
+//           $lotto = new Lotto();
+//           $lotto->username = Auth::user()->name;
+//           $lotto->payload = $request->payload;
+//           
+//           $lotto->save();
+           return response()->json(['response'=> Auth::user()->name]);
        }else{
            return response()->json(['response'=> 'not saved']);
        }

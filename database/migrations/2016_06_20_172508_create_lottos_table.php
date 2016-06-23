@@ -16,7 +16,7 @@ class CreateLottosTable extends Migration
             $table->increments('lotto_id');
             $table->string('username');
             $table->text('payload');
-            $table->timestamps('date_created');
+           $table->timestamps(); 
         });
         Schema::table('lottos', function($table) {
        $table->foreign('username')->references('name')->on('users')->onUpdate('cascade');
