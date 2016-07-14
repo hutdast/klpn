@@ -77,10 +77,10 @@ class LandyApiController extends Controller
 //           $lotto->payload = $request->payload;
 //           
 //           $lotto->save();
-           return response()->json(['response'=> $request->payload]);
-       }else{
-           return response()->json(['response'=> 'not saved']);
+           return response()->json(['response'=> '$request->payload']);
        }
+           return response()->json(['response'=> 'not saved']);
+       
        
    }
    /**
