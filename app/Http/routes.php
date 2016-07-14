@@ -39,7 +39,7 @@ Route::get('api',['as'=>'api','uses'=>'LandyApiController@index']);
 Route::post('api/login',['as'=>'api_access','uses'=>'LandyApiController@apiAccess']);
 Route::get('api/check',['as'=>'api_check','uses'=>'LandyApiController@apiAuthCheck']);
 Route::get('api/logout',['as'=>'api_logout','uses'=>'LandyApiController@apiLogout']);
-Route::post('api/store',['as'=>'api_storage','uses'=>'LandyApiController@apiStore']);
+Route::get('api/store',['as'=>'api_storage','uses'=>'LandyApiController@apiStore']);
 Route::get('api/fetch',['as'=>'api_fetch','uses'=>'LandyApiController@apiFetch']);
 
 
