@@ -108,10 +108,7 @@ class FamilyController extends Controller {
                 $format = 'Y-m-d';
 
                 for ($i = 0; $i < $size_arr; $i++) {
-//                    $start = explode("/", trim($edu_input['start_date'][$i]));
-//                    $end = explode("/", $edu_input['end_date'][$i]);
-//                    $start = Carbon::create($start[2], $start[0], $start[1]);
-//                    $end = Carbon::create($end[2], $end[0], $end[1]);
+//                   
                     $edu_arr[] = array(
                         'username' => $family->nickname,
                         'title' => $edu_input['title'][$i],
