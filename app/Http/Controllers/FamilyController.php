@@ -42,6 +42,8 @@ class FamilyController extends Controller {
         })->get();
         
             $data['family'] = $users;
+           $data['sophia'] = Photo::where('for_section','=','sohpia')->first();
+            
             return view('welcome', $data);
         }
     }
