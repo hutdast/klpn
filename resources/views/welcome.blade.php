@@ -58,7 +58,7 @@ Welcome
           <div class="about-work wow animated fadeInRight" data-wow-delay=".5s">
               <h2 class="section-title"><span style="font-family: lato;">Family Newsweek</span> </h2><!-- /.section-title -->
 <p>Sophia is here!</p>
-<img src="{{$sophia->url}}" class="img-thumbnail" />
+<!----<img src="{{$sophia->url}}" class="img-thumbnail" />---->
    <div class="fb-comments" data-href="https://www.facebook.com/twinsANgryPaNda" data-numposts="5"></div>
               
           </div><!-- /.about-work -->
