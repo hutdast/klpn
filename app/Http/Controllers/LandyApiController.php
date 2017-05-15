@@ -20,8 +20,16 @@ class LandyApiController extends Controller
 
     return response()->json(['token'=>csrf_token()]);
    }
-    
-    
+    /**
+Testing API from different sourcses
+    **/
+    function apiTest(Request $request)
+    {
+           if(!isset($request->RobotType)){
+           return response()->json(['response'=>'is not set']);
+       }
+     return response()->json(['response'=>'connection went tru & the answer is: '.$request->RobotType]);
+    }
     
    /**
     * apiAccess(Request $request, FamilyMember $family) authenticates user and once authneticated a token is returned
