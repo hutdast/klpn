@@ -79,10 +79,22 @@ class LandyApiController extends Controller
 //           $lotto->save();
            return response()->json(['response'=> '$request->payload']);
        }
-           return response()->json(['response'=> 'not saved']);
-       
-       
+           return response()->json(['response'=> 'not saved']);     
    }
+
+  function apiTest(Request $request)
+    {
+    //        if(!isset($request->RobotType)){
+    //        return response()->json(['response'=>'is not set']);
+    //    }
+      
+     return response()->json(['response'=>'connection went thru ']);
+    
+    }
+
+
+
+
    /**
     * Api storage retrieval
     * Api retrieval fetches saved lotto of the user
