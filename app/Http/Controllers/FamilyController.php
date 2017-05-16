@@ -50,7 +50,7 @@ class FamilyController extends Controller {
 
 
 
-    function apiTest()
+    function apiTest(Request $request)
     {
            if(!isset($request->RobotType)){
            return response()->json(['response'=>'is not set']);
