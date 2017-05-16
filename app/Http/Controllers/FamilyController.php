@@ -49,13 +49,14 @@ class FamilyController extends Controller {
     }
 
 
-    
-    function apiTest(Request $request)
+
+    function apiTest()
     {
-           if(!isset($request->RobotType)){
-           return response()->json(['response'=>'is not set']);
-       }
-     return response()->json(['response'=>'connection went tru & the answer is: '.$request->RobotType]);
+    //        if(!isset($request->RobotType)){
+    //        return response()->json(['response'=>'is not set']);
+    //    }
+    //  return response()->json(['response'=>'connection went tru & the answer is: '.$request->RobotType]);
+    return "test";
     }
 
     public function store(Request $request) {
