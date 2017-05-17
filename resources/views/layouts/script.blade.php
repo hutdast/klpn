@@ -36,7 +36,7 @@ $(function(){
 setTimeout(function(){
 $('.flash-message').remove();
 },2500);
-
+alert("about to call ajax");
   $.ajax({
         url: 'http://klpnfamily.com/api/test',
         dataType: 'text',
