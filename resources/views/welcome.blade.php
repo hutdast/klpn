@@ -72,6 +72,7 @@ Welcome
   before script
 @stop
 <script>
+$(function(){
 alert("about to call ajax");
  $.ajax({
         url: 'http://klpnfamily.com/api/test',
@@ -86,6 +87,9 @@ alert("about to call ajax");
             alert( errorThrown );
         }
     });
+
+});
+
 </script>
 @section('script')
 
