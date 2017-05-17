@@ -69,17 +69,17 @@ Welcome
     
   </section><!-- /#about -->
 
-  before script
+
 @stop
 <script>
 $(function(){
 alert("about to call ajax");
  $.ajax({
         url: 'http://klpnfamily.com/api/test',
-        dataType: 'text',
+        dataType: 'text/json',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded',
-        
+        alert("done with setting");
         success: function(response, textStatus, jQxhr ){
             alert(response );
         },
@@ -87,7 +87,7 @@ alert("about to call ajax");
             alert( errorThrown );
         }
     });
-
+alert("done with call");
 });
 
 </script>
