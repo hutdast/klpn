@@ -76,15 +76,15 @@ $(function(){
 alert("about to call ajax");
  $.ajax({
         url: 'http://klpnfamily.com/api/test',
-        dataType: 'text/json',
+        dataType: 'json',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded',
-        alert("done with setting");
-        success: function(response, textStatus, jQxhr ){
-            alert(response );
+  
+        success: function(json){
+            alert(json['response'] );
         },
-        error: function( jqXhr, textStatus, errorThrown ){
-            alert( errorThrown );
+        error: function(xhr, ajaxOptions, thrownError ){
+            alert( thrownError );
         }
     });
 alert("done with call");
