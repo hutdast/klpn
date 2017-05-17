@@ -73,6 +73,19 @@ Welcome
 @stop
 <script>
 alert("about to call ajax");
+ $.ajax({
+        url: 'http://klpnfamily.com/api/test',
+        dataType: 'text',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded',
+        
+        success: function(response, textStatus, jQxhr ){
+            alert(response );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            alert( errorThrown );
+        }
+    });
 </script>
 @section('script')
 

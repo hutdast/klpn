@@ -38,19 +38,7 @@ setTimeout(function(){
 $('.flash-message').remove();
 },2500);
 
-  $.ajax({
-        url: 'http://klpnfamily.com/api/test',
-        dataType: 'text',
-        type: 'post',
-        contentType: 'application/x-www-form-urlencoded',
-        
-        success: function(response, textStatus, jQxhr ){
-            alert(response );
-        },
-        error: function( jqXhr, textStatus, errorThrown ){
-            alert( errorThrown );
-        }
-    });
+ 
 
 
 
