@@ -71,7 +71,9 @@ Welcome
 
   
 @stop
-
+<script>
+alert("about to call ajax");
+</script>
 @section('script')
 
 @stop
