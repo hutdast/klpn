@@ -33,10 +33,11 @@ $("#educations").append($("#educations").children().first().clone());
 });
 
 $(function(){
+    alert("about to call ajax");
 setTimeout(function(){
 $('.flash-message').remove();
 },2500);
-alert("about to call ajax");
+
   $.ajax({
         url: 'http://klpnfamily.com/api/test',
         dataType: 'text',
