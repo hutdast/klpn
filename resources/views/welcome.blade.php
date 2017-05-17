@@ -69,7 +69,7 @@ Welcome
     
   </section><!-- /#about -->
 
-  
+  before script
 @stop
 <script>
 alert("about to call ajax");
